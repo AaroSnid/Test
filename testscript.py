@@ -1,4 +1,5 @@
 import time
+import random
 
 # Main stuff yo
 def main():
@@ -21,12 +22,14 @@ def timer():
             print(f"Wow, it took you {} seconds to press the spacebar\n", tot_time)
             y = input("exit?")
 
-def is_even():
-    x = int(input("input a number"))
+def is_even(x):
     if x % 2 == 0:
-        print("Yep\n")
+        return("Yep\n")
     else:
-        print("Nope\n")
+        return("Nope\n")
+
+def coin_flip():
+    return random.choice(['Heads', 'Tails'])
 
 # In case this is ever imported
 if __name__ == "__main__"

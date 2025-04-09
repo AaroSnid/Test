@@ -5,4 +5,4 @@
 This is a place for me to test my ability to use the command line
 This file was edited in pyCharm
 
-Next change to make is to configure a default test editor
+The defaut text editor has now been set, so it opens to write fancy commit messages
