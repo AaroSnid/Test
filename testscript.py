@@ -1,36 +1,65 @@
 import time
 import random
 
-# Main stuff yo
 def main():
-    while(1):
-        i = input("Enter \"1\" for timer, or \"2\" for an odd/even function")
-        if i == 1:
-            timer()
-        elif i == 2:
-            is_even()
-        else:
-            print("Uhh, try again?\n")
+    while 1:
+
+        #Prints the options to the user
+        print("Here is a list of available functions:")
+        print("1. Timer")
+        print("2. Even determiner")
+        print("3. Coin flipper\n")
+
+        #Makes sure that the user enters a number for selection
+        try:
+            i = int(input("Input desired function\'s number\n"))
+        except ValueError:
+            print("Please enter an integer\n")
+            continue
+
+        #Choosing the function to execute
+        match i:
+            case 1:
+                timer()
+            case 2:
+                print(f"Your number {is_even()} even")
+            case 3:
+                print(f"The coin flipped {coin_flip()}\n")
+            case _:
+                print("Invalid number detected, please try again\n")
 
 def timer():
-    while(y != 'y'):
+    """Displays the time it takes the user to press the space bar"""
+
+    y = 'n'
+    while y != 'y':
         y = 'n'
         init_time = time.time()
-        x = input("Press the spacebar")
+        x = input("Press the space bar, then enter")
         if x == " ":
             tot_time = time.time() - init_time
-            print(f"Wow, it took you {} seconds to press the spacebar\n", tot_time)
-            y = input("exit?")
+            print(f'It took you {tot_time} seconds to press the space bar\n')
+            y = input("exit? (y/n)")
 
-def is_even(x):
+def is_even() -> str:
+    """Checks if a value entered by the user is even"""
+
+    #Data validation for the user's number
+    while 1:
+        y = input("Input your glorious number, and I shall declare if it is even.\n")
+        try:
+            x = int(y)
+            break
+        except ValueError:
+            print('Please enter an integer')
+
     if x % 2 == 0:
-        return("Yep\n")
+        return "is"
     else:
-        return("Nope\n")
+        return "is not"
 
 def coin_flip():
-    return random.choice(['Heads', 'Tails'])
+    return random.choice(['heads', 'tails'])
 
-# In case this is ever imported
-if __name__ == "__main__"
+if __name__ == "__main__":
     main()
