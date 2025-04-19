@@ -8,7 +8,8 @@ def main():
         print("Here is a list of available functions:")
         print("1. Timer")
         print("2. Even determiner")
-        print("3. Coin flipper\n")
+        print("3. Coin flipper")
+        print("4. Rochambeau\n")
 
         #Makes sure that the user enters a number for selection
         try:
@@ -25,6 +26,8 @@ def main():
                 print(f"Your number {is_even()} even")
             case 3:
                 print(f"The coin flipped {coin_flip()}\n")
+            case 4:
+                rochambeau()
             case _:
                 print("Invalid number detected, please try again\n")
 
@@ -64,18 +67,18 @@ def coin_flip():
 def rochambeau():
 
     #Declaring variables
-    y = 'n'
+    y = 'y'
     program_score = 0
     player_score = 0
 
     #Main loop for the game
-    while y != 'y':
+    while y != 'n':
         print(f"Current Score:")
         print(f"Player: {player_score} Program: {program_score}\n")
 
         #Get valid user input
         while 1:
-            player_choice = input("Choose rock, paper, or scissors")
+            player_choice = input("Choose rock, paper, or scissors\n")
 
             #Dealing with capital letters in user input
             if "ock" in player_choice:
