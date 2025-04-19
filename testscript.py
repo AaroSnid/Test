@@ -61,5 +61,69 @@ def is_even() -> str:
 def coin_flip():
     return random.choice(['heads', 'tails'])
 
+def rochambeau():
+
+    #Declaring variables
+    y = 'n'
+    program_score = 0
+    player_score = 0
+
+    #Main loop for the game
+    while y != 'y':
+        print(f"Current Score:")
+        print(f"Player: {player_score} Program: {program_score}\n")
+
+        #Get valid user input
+        while 1:
+            player_choice = input("Choose rock, paper, or scissors")
+
+            #Dealing with capital letters in user input
+            if "ock" in player_choice:
+                player_choice = "rock"
+                break
+            elif "aper" in player_choice:
+                player_choice = "paper"
+                break
+            elif "cissors" in player_choice:
+                player_choice = "scissors"
+                break
+            else:
+                print("Invalid selection, please try again")
+
+        #Get the programs choice
+        program_choice = random.choice(['rock', 'paper', 'scissors'])
+
+        #Display program choice to the user, for fairness
+        print(f"The program's choice is {program_choice}")
+
+        #Determining the winner
+        if player_choice == program_choice:
+            print("The game is a tie!\n")
+        elif player_choice == "paper":
+            if program_choice == 'rock':
+                print("Congratulations, you have won!\n")
+                player_score += 1
+            else:
+                print("Sorry, you have lost.")
+                program_score += 1
+        elif player_choice == "rock":
+            if program_choice == 'scissors':
+                print("Congratulations, you have won!\n")
+                player_score += 1
+            else:
+                print("Sorry, you have lost.")
+                program_score += 1
+        elif player_choice == "scissors":
+            if program_choice == 'paper':
+                print("Congratulations, you have won!\n")
+                player_score += 1
+            else:
+                print("Sorry, you have lost.")
+                program_score += 1
+
+        y = input("Would you like to play again? (y/n)\n")
+
+
+
 if __name__ == "__main__":
     main()
